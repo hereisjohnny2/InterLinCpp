@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/InterLin.dir/src/main.cpp.o CMakeFiles/InterLin.dir/src/CInterpolacao.cpp.o CMakeFiles/InterLin.dir/src/CReta.cpp.o CMakeFiles/InterLin.dir/src/CSegmentoReta.cpp.o  -o InterLin libs/CGnuplot/libCGnuplot.a 

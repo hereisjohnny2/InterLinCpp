@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/joao/Documentos/DevCpp/InterLin/src/libs/CGnuplot/src/CGnuplot.cpp
+fstream
+-
+sstream
+-
+list
+-
+cstdio
+-
+cstdlib
+-
+CGnuplot.h
+/home/joao/Documentos/DevCpp/InterLin/src/libs/CGnuplot/src/CGnuplot.h
+io.h
+-
+unistd.h
+-
+
+/home/joao/Documentos/DevCpp/InterLin/src/libs/CGnuplot/src/CGnuplot.h
+iostream
+-
+sstream
+-
+string
+-
+vector
+-
+utility
+-
+stdexcept
+-
+cstdio
+-
+

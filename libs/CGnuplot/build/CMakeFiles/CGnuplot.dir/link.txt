@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCGnuplot.a  CMakeFiles/CGnuplot.dir/src/CGnuplot.cpp.o
+/usr/bin/ranlib libCGnuplot.a
