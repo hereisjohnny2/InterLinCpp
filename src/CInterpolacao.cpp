@@ -54,9 +54,15 @@ void CInterpolacao::Entrada(std::ostream &os, std::istream &in)
     {
         os << "Digite os valores de X e Y do ponto " << vx.size() + 1 << ": ";
         in >> x >> y;
-        vx.push_back(x);
-        vy.push_back(y);
+        in.get();
+        if (in.good())
+        {
+            vx.push_back(x);
+            vy.push_back(y);
+        }
     } while (std::cin.good());
+    in.clear();
+    os << std::endl;
 
     PreencheVetorRetas(vx, vy);
 }
@@ -87,7 +93,7 @@ void CInterpolacao::Entrada(const std::string &nomeArquivo)
     PreencheVetorRetas(vx, vy);
 }
 
-void CInterpolacao::Saida(std::ostream &os)
+void CInterpolacao::Saida(std::ostream &os) const
 {
     for (auto reta : retas)
     {
@@ -108,6 +114,26 @@ void CInterpolacao::Saida(const std::string &nomeArquivo)
     Saida(fout);
 
     fout.close();
+}
+
+std::ostream &operator<<(std::ostream &os, const CInterpolacao &inter)
+{
+    for (auto reta : inter.retas)
+    {
+        os << (*reta) << "\n";
+    }
+
+    return os;
+}
+
+std::istream &operator>>(std::istream &in, CInterpolacao &inter)
+{
+    for (auto reta : inter.retas)
+    {
+        in >> (*reta);
+    }
+
+    return in;
 }
 
 void CInterpolacao::Plot()

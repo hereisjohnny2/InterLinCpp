@@ -49,7 +49,7 @@ std::ostream &operator<<(std::ostream &os, const CReta &reta)
     return os;
 }
 
-std::istream &operator<<(std::istream &in, CReta &reta)
+std::istream &operator>>(std::istream &in, CReta &reta)
 {
     in >> reta.a >> reta.b;
     return in;

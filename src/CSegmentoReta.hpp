@@ -45,7 +45,7 @@ public:
     /// Sobrecarga operador de inserção << para saida "y = a + b*x".
     friend std::ostream &operator<<(std::ostream &os, const CSegmentoReta &reta);
     /// Sobrecarga operador extração >> para receber os coeficientes a, b, xmin e xmax.
-    friend std::istream &operator<<(std::istream &in, CSegmentoReta &reta);
+    friend std::istream &operator>>(std::istream &in, CSegmentoReta &reta);
 
     /// Sobrecarga de operador de igualdade, verifica de os coeficientes são iguais.
     friend bool operator==(const CSegmentoReta &reta1, const CSegmentoReta &reta2);

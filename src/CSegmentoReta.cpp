@@ -44,7 +44,7 @@ std::ostream &operator<<(std::ostream &os, const CSegmentoReta &reta)
     return os;
 }
 
-std::istream &operator<<(std::istream &in, CSegmentoReta &reta)
+std::istream &operator>>(std::istream &in, CSegmentoReta &reta)
 {
     in >> reta.a >> reta.b >> reta.xmin >> reta.xmax;
     return in;
