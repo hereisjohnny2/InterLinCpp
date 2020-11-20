@@ -6,6 +6,7 @@ void ArguardarEnter();
 CInterpolacao *LeituraManual();
 CInterpolacao *LeituraDisco();
 string RetornaNomeArquivo();
+void PlotPontos(CInterpolacao *inter);
 
 int main(int argc, char const *argv[])
 {
@@ -45,20 +46,7 @@ int main(int argc, char const *argv[])
     inter->Plot();
     ArguardarEnter();
 
-    double val = 0.0;
-    do
-    {
-        cout << "Entre com  o valor: ";
-        cin >> val;
-        cin.get();
-        if (cin.good())
-        {
-            cout << "f(" << val << ") = " << inter->Fx(val) << "\n";
-            inter->Grafico().PlotPoint(val, inter->Fx(val));
-            inter->Grafico().PlotLabel(val, inter->Fx(val), " Valor Teste");
-        }
-    } while (std::cin.good());
-    cin.clear();
+    PlotPontos(inter);
 
     cout << "\n\nDeseja Salvar o Gráfico (1 - sim / 0 - não)? ";
     cin >> opcao;
@@ -105,4 +93,22 @@ string RetornaNomeArquivo()
     cout << "Digite o nome do arquivo: ";
     cin >> nomeArquivo;
     return nomeArquivo;
+}
+
+void PlotPontos(CInterpolacao *inter)
+{
+    double val = 0.0;
+    do
+    {
+        cout << "Entre com  o valor: ";
+        cin >> val;
+        cin.get();
+        if (cin.good())
+        {
+            cout << "f(" << val << ") = " << inter->Fx(val) << "\n";
+            inter->Grafico().PlotPoint(val, inter->Fx(val));
+            inter->Grafico().PlotLabel(val, inter->Fx(val), " Valor Teste");
+        }
+    } while (std::cin.good());
+    cin.clear();
 }
