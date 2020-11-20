@@ -139,8 +139,6 @@ std::istream &operator>>(std::istream &in, CInterpolacao &inter)
 void CInterpolacao::Plot()
 {
     plot.Title("Interpolacao Linear");
-    plot.XLabel("Temperatura (°C)");
-    plot.YLabel("Calor Específico (cal/g.°C)");
     plot.Grid(true);
 
     for (auto reta : retas)
