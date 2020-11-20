@@ -11,15 +11,25 @@ void ArguardarEnter()
     std::cin.get();
 }
 
-int main(int argc, char const *argv[])
+string RetornaNomeArquivo()
 {
     string nomeArquivo;
     cout << "Digite o nome do arquivo .dat: ";
     cin >> nomeArquivo;
+    return nomeArquivo;
+}
 
-    CInterpolacao inter(nomeArquivo);
+int main(int argc, char const *argv[])
+{
+
+    cout << "Arquivos Encontrados: " << endl;
+    system("ls ../data");
+    cout << endl;
+
+    CInterpolacao inter("../data/" + RetornaNomeArquivo());
     inter.Saida();
-    inter.Saida("../calorTeste.dat");
+
+    inter.Saida("../data/" + RetornaNomeArquivo());
 
     inter.Plot();
 

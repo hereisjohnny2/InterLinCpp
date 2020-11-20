@@ -10,6 +10,7 @@ private:
     CGnuplot plot = CGnuplot("lines");
 
 public:
+    CInterpolacao() = default;
     CInterpolacao(const std::string &nomeArquivo);
     CInterpolacao(std::vector<CSegmentoReta *> _retas, double _xmin, double _xmax) : retas(_retas), xmin(_xmin), xmax(_xmax) {}
     CInterpolacao(const CInterpolacao &interpolacao) : retas(interpolacao.retas), xmin(interpolacao.xmin), xmax(interpolacao.xmax), plot(interpolacao.plot){};

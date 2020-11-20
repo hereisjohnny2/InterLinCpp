@@ -12,10 +12,8 @@
 class CReta
 {
 protected:
-    /// Representa o coeficiente angular b de uma reta.
-    double b{0.0};
-    /// Representa o coeficiente linear a de uma reta.
-    double a{0.0};
+    double b{0.0}; ///< Representa o coeficiente angular b de uma reta.
+    double a{0.0}; ///< Representa o coeficiente linear a de uma reta.
 
 public:
     /// Construtor default.

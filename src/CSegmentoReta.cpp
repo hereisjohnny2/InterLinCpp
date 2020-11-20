@@ -37,21 +37,39 @@ void CSegmentoReta::Saida(std::string nomeArquivo)
     fout.close();
 }
 
+std::ostream &operator<<(std::ostream &os, const CSegmentoReta &reta)
+{
+    os << reta.a << "\t" << reta.b << "\t"
+       << reta.xmin << "\t" << reta.xmax;
+    return os;
+}
+
+std::istream &operator<<(std::istream &in, CSegmentoReta &reta)
+{
+    in >> reta.a >> reta.b >> reta.xmin >> reta.xmax;
+    return in;
+}
+
+bool operator==(const CSegmentoReta &reta1, const CSegmentoReta &reta2)
+{
+    return (reta1.a == reta2.a and reta1.b == reta2.b and reta1.xmin == reta2.xmin and reta1.xmax == reta2.xmax);
+}
+
+bool operator!=(const CSegmentoReta &reta1, const CSegmentoReta &reta2)
+{
+    return !(reta1 == reta2);
+}
+
 void CSegmentoReta::Plot(CGnuplot &grafico) const
 {
-    std::vector<double> vx;
-    std::vector<double> vy;
-
-    vx.push_back(xmin);
-    vy.push_back(Fx(xmin));
-    vx.push_back(xmax);
-    vy.push_back(Fx(xmax));
+    std::vector<double> vx{xmin, xmax};
+    std::vector<double> vy{Fx(xmin), Fx(xmax)};
 
     grafico.PlotVector(vx, vy, Equacao());
+}
 
-    // std::cout << std::endl
-    //           << "Pressione ENTER para continuar..." << std::endl;
-    // std::cin.clear();                              // Zera estado de cin
-    // std::cin.ignore(std::cin.rdbuf()->in_avail()); // Ignora
-    // std::cin.get();
+CGnuplot &operator<<(CGnuplot &grafico, const CSegmentoReta &reta)
+{
+    reta.Plot(grafico);
+    return grafico;
 }

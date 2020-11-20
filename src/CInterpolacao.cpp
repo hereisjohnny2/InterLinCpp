@@ -121,10 +121,4 @@ void CInterpolacao::Plot()
     {
         reta->Plot(plot);
     }
-
-    std::cout << std::endl
-              << "Pressione ENTER para continuar..." << std::endl;
-    std::cin.clear();                              // Zera estado de cin
-    std::cin.ignore(std::cin.rdbuf()->in_avail()); // Ignora
-    std::cin.get();
 }

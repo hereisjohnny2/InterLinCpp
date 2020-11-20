@@ -67,16 +67,10 @@ bool operator!=(const CReta &reta1, const CReta &reta2)
 
 void CReta::Plot(CGnuplot &grafico) const
 {
-    std::vector<double> v1{0.0, Fx(0.0)};
-    std::vector<double> v2{1.0, Fx(1.0)};
+    std::vector<double> vx{0.0, 1.0};
+    std::vector<double> vy{Fx(0.0), Fx(1.0)};
 
-    grafico.PlotVector(v1, v2, Equacao());
-
-    std::cout << std::endl
-              << "Pressione ENTER para continuar..." << std::endl;
-    std::cin.clear();                              // Zera estado de cin
-    std::cin.ignore(std::cin.rdbuf()->in_avail()); // Ignora
-    std::cin.get();
+    grafico.PlotVector(vx, vy, Equacao());
 }
 
 CGnuplot &operator<<(CGnuplot &grafico, const CReta &reta)
