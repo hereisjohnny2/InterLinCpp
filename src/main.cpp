@@ -41,10 +41,27 @@ int main(int argc, char const *argv[])
 
     inter->Saida("../data/" + RetornaNomeArquivo());
 
+    inter->Grafico().XLabel("Temperatura (C)");
+    inter->Grafico().YLabel("Calor Específico (cal/gC)");
     inter->Plot();
     ArguardarEnter();
 
-    inter->Grafico().PlotPoint(31, inter->Fx(31));
+    double val = 0.0;
+    do
+    {
+        cout << "Entre com  o valor: ";
+        cin >> val;
+        cin.get();
+        if (cin.good())
+        {
+            cout << "f(" << val << ") = " << inter->Fx(val) << "\n";
+            inter->Grafico().PlotPoint(val, inter->Fx(val));
+        }
+    } while (std::cin.good());
+    cin.clear();
+
+    inter->Grafico().ImageExport("../data/grafico", "png");
+
     ArguardarEnter();
 
     return 0;
