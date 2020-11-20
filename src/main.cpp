@@ -38,7 +38,6 @@ int main(int argc, char const *argv[])
     }
 
     inter->Saida();
-
     inter->Saida("../data/" + RetornaNomeArquivo());
 
     inter->Grafico().XLabel("Temperatura (C)");
@@ -56,6 +55,7 @@ int main(int argc, char const *argv[])
         {
             cout << "f(" << val << ") = " << inter->Fx(val) << "\n";
             inter->Grafico().PlotPoint(val, inter->Fx(val));
+            inter->Grafico().PlotLabel(val, inter->Fx(val), " Valor Teste");
         }
     } while (std::cin.good());
     cin.clear();
@@ -64,7 +64,7 @@ int main(int argc, char const *argv[])
     cin >> opcao;
     if (opcao)
     {
-        inter->Grafico().ImageExport("../data/" + RetornaNomeArquivo(), "png");
+        inter->Grafico().ImageExport("../data/" + RetornaNomeArquivo(), "png"); // Ver depois com o Bueno o porque da mensagem de erro quando sai do gráfico
     }
     ArguardarEnter();
 
