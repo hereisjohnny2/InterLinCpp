@@ -60,9 +60,15 @@ int main(int argc, char const *argv[])
     } while (std::cin.good());
     cin.clear();
 
-    inter->Grafico().ImageExport("../data/grafico", "png");
-
+    cout << "\n\nDeseja Salvar o Gráfico (1 - sim / 0 - não)? ";
+    cin >> opcao;
+    if (opcao)
+    {
+        inter->Grafico().ImageExport("../data/" + RetornaNomeArquivo(), "png");
+    }
     ArguardarEnter();
+
+    delete inter;
 
     return 0;
 }
@@ -96,7 +102,7 @@ CInterpolacao *LeituraDisco()
 string RetornaNomeArquivo()
 {
     string nomeArquivo;
-    cout << "Digite o nome do arquivo .dat: ";
+    cout << "Digite o nome do arquivo: ";
     cin >> nomeArquivo;
     return nomeArquivo;
 }
