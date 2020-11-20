@@ -9,7 +9,11 @@ string RetornaNomeArquivo();
 
 int main(int argc, char const *argv[])
 {
-    cout << "Interpolação Linear - Demo\n\n";
+    cout << "******************************************************************\n";
+    cout << "*************                                         ************\n";
+    cout << "*************       Interpolação Linear - Demo        ************\n";
+    cout << "*************                                         ************\n";
+    cout << "******************************************************************\n\n";
 
     cout << "1 - Entrada de Dados Manual\n";
     cout << "2 - Entrada de Dados do Disco\n";
